@@ -87,4 +87,9 @@ public class NameAdapter extends BaseAdapter{
     }
 
 
+    public void addName(){
+        mNames.add(0, getRandomName()); //This method adds a random name to position 0 (Zero) from the names Array
+        notifyDataSetChanged(); //Ou radapter is notified of the change
+    }
+
 }
