@@ -70,7 +70,8 @@ public class NameAdapter extends BaseAdapter{
         TextView positionTextView = (TextView)view.findViewById(R.id.position_view);
         positionTextView.setText(String.format("I'm #%d ", (position+1))); //This sets the string to the position of that elemement
 
-        return null;
+        //return null; //We can now return our view instead of null
+        return view;
     }
 
 
