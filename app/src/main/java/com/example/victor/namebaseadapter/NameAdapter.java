@@ -92,4 +92,9 @@ public class NameAdapter extends BaseAdapter{
         notifyDataSetChanged(); //Ou radapter is notified of the change
     }
 
+    public void removeName(int position){
+        mNames.remove(position); //This removes the item from the position
+        notifyDataSetChanged();
+    }
+
 }
