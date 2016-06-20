@@ -8,8 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private  NameAdapter mAdapter; //Reference the adapter we created
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //Make reference to the listView in te main layout and create the adapter
+
+        ListView mListView = (ListView) findViewById(R.id.list_view); //Reference our list view >>>This is an array
+        //Create the adapter
+        mAdapter = new NameAdapter(this); //Create the adapter referencing this context
+        mListView.setAdapter(mAdapter); //Bind our list view to our content
+
+
+
     }
 
     @Override
