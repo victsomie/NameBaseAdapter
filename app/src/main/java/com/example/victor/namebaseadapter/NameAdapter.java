@@ -22,7 +22,7 @@ public class NameAdapter extends BaseAdapter{
     private ArrayList<String> mNames = new ArrayList<>(); //Creates a new arraylist
 
 
-    public NameAdapter(Context context){ //Creates a constructor for the NameAdapter class with the context as the parameters
+    public NameAdapter(Context context){ //Creates a constructor for the NameAdapter class with the context as the parameter
         mContext = context; //Stores that content in a field
 
 
