@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -31,19 +32,26 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+                mAdapter.addName(); //This uses the method from the adapter add items when the button is clicked
             }
         });
 
         //Make reference to the listView in te main layout and create the adapter
 
-        ListView mListView = (ListView) findViewById(R.id.list_view); //Reference our list view >>>This is an array
+        ListView mListView = (ListView)findViewById(R.id.list_view); //Reference our list view >>>This is an array
         //Create the adapter
         mAdapter = new NameAdapter(this); //Create the adapter referencing this context
         mListView.setAdapter(mAdapter); //Bind our list view to our content
 
-
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                mAdapter.removeName(position); //Tells the adapter remove item at that position
+                return false;
+            }
+        });
 
     }
 
